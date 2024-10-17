@@ -8,6 +8,11 @@ public class ArrayUtils {
       for (int i = 0; i < n - j; i++) {
         if (data[i] > data[i + 1]) {
           int tmp = data[i];
+          /* можно свапнуть так:
+            data[i] = data[i] + data[i+1];
+            data[i+1] = data[i] - data[i+1];
+            data[i] -= data[i+1]
+          */
           data[i] = data[i + 1];
           data[i + 1] = tmp;
           isSorted = false;
