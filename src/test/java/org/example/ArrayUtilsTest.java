@@ -1,11 +1,13 @@
 package org.example;
 
+import com.google.common.base.Stopwatch;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.time.Duration;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
@@ -29,7 +31,29 @@ public class ArrayUtilsTest {
   }
 
   @Test
-  public static void bubbleSortTestExecutionTime() {
-    Stopwat
+  public void bubbleSortTestExecutionTime() {
+    Integer[] arr = {-3, 2, 3, 1, 4, 6, 5, -10, 8};
+    Stopwatch stopwatch = Stopwatch.createStarted();
+    ArrayUtils.bubbleSort(arr);
+    Duration elapsedTime = stopwatch.elapsed();
+    Assertions.assertTrue(elapsedTime.toSeconds() < 1);
+  }
+
+  @Test
+  public void quickSortTestExecutionTime() {
+    Integer[] arr = {-3, 2, 3, 1, 4, 6, 5, -10, 8};
+    Stopwatch stopwatch = Stopwatch.createStarted();
+    ArrayUtils.bubbleSort(arr);
+    Duration elapsedTime = stopwatch.elapsed();
+    Assertions.assertTrue(elapsedTime.toMillis() < 500);
+  }
+
+  @Test
+  public void selectionSortTestExecutionTime() {
+    Integer[] arr = {-3, 2, 3, 1, 4, 6, 5, -10, 8};
+    Stopwatch stopwatch = Stopwatch.createStarted();
+    ArrayUtils.selectionSort(arr);
+    Duration elapsedTime = stopwatch.elapsed();
+    Assertions.assertTrue(elapsedTime.toSeconds() < 1);
   }
 }
